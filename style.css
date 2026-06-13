@@ -242,6 +242,18 @@ p {
     white-space: nowrap;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
 
 .nav-menu ul {
     display: flex;
