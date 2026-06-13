@@ -313,18 +313,24 @@ p {
 }
 
 .logo-link {
-    display: flex;
-    align-items: center;
+    display: block;
+    position: relative;
+    width: 180px;
+    height: 78px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo-img {
-    height: 70px;
+    position: absolute;
+    height: 180px;
     width: auto;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #000;
-    padding: 4px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -1486,11 +1492,13 @@ p {
         justify-self: flex-start;
     }
 
+    .logo-link {
+        width: 130px;
+        height: 58px;
+    }
+
     .logo-img {
-        height: 56px;
-        width: auto;
-        border-radius: 8px;
-        padding: 3px;
+        height: 130px;
     }
 
     .logo-text {
