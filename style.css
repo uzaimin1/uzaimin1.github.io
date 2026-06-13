@@ -236,17 +236,12 @@ p {
 
 .logo-text {
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--primary);
     text-decoration: none;
+    white-space: nowrap;
 }
 
-.logo-subtitle {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
 .nav-menu ul {
     display: flex;
@@ -325,9 +320,10 @@ p {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease-out;
+    white-space: nowrap;
 }
 
 .hero-subtitle {
