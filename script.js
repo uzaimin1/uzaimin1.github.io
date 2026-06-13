@@ -66,12 +66,31 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    // Toggle hamburger icon
+    const icon = menuToggle.querySelector('svg');
+    if (navMenu.classList.contains('active')) {
+        menuToggle.innerHTML = '<i data-feather="x"></i>';
+    } else {
+        menuToggle.innerHTML = '<i data-feather="menu"></i>';
+    }
+    feather.replace();
 });
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        menuToggle.innerHTML = '<i data-feather="menu"></i>';
+        feather.replace();
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        menuToggle.innerHTML = '<i data-feather="menu"></i>';
+        feather.replace();
+    }
 });
 
 // ============================================
@@ -179,33 +198,37 @@ if (contactForm) {
             return;
         }
 
+        // Show sending state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
         try {
-            // Send email using formspree service
-            const response = await fetch('https://formspree.io/f/meojqejr', {
+            // Build form data to send to Hostinger PHP
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+
+            const response = await fetch('https://uzeetechnology.com/send_mail.php', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                })
+                body: formData
             });
 
-            if (response.ok) {
-                showFormMessage('✓ Message sent successfully! I\'ll get back to you within 24 hours.', 'success');
+            const result = await response.json();
+
+            if (result.success) {
+                showFormMessage('✓ Message sent! I\'ll get back to you within 24 hours.', 'success');
                 contactForm.reset();
             } else {
-                // Still show success for validation purposes
-                showFormMessage('✓ Message received! I\'ll contact you shortly at ' + email, 'success');
-                contactForm.reset();
+                showFormMessage('✗ ' + result.message, 'error');
             }
         } catch (error) {
-            // Fallback: Show success message (network error, but form data is valid)
-            showFormMessage('✓ Message received! I\'ll contact you shortly.', 'success');
-            contactForm.reset();
+            showFormMessage('✗ Something went wrong. Please email me directly at usaimin@uzeetechnology.com', 'error');
+        } finally {
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
         }
     });
 }
