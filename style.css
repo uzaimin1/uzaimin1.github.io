@@ -371,6 +371,15 @@ p {
     justify-content: center;
 }
 
+.hero-avatar {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    z-index: 5;
+    filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.3));
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
 .floating-card {
     position: absolute;
     background: rgba(26, 40, 71, 0.4);
