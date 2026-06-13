@@ -323,7 +323,7 @@ p {
     height: 64px;
     width: 64px;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: 12px;
 }
 
 
@@ -421,7 +421,7 @@ p {
     width: 8px;
     height: 8px;
     background: var(--accent);
-    border-radius: 50%;
+    border-radius: 12px;
     animation: pulse 2s infinite;
     box-shadow: 0 0 8px var(--accent);
 }
@@ -514,7 +514,7 @@ p {
     filter: drop-shadow(0 0 40px rgba(0, 217, 255, 0.4));
     animation: fadeInUp 0.8s ease-out 0.5s both;
     border: 4px solid #ff6b35;
-    border-radius: 50%;
+    border-radius: 12px;
     box-shadow:
         0 0 30px rgba(255, 107, 53, 0.6),
         0 0 60px rgba(0, 217, 255, 0.3),
@@ -1486,9 +1486,16 @@ p {
     }
 
     .logo-img {
-        height: 52px;
-        width: 52px;
-        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        object-fit: contain;
+        border-radius: 12px;
+        overflow: visible;
+    }
+
+    .logo-link {
+        overflow: visible;
+        flex-shrink: 0;
     }
 
     .logo-text {
