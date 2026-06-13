@@ -385,16 +385,18 @@ p {
 }
 
 .hero-visual {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-items: center;
-    gap: 2rem;
-    max-width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
-.hero-visual .hero-avatar {
-    grid-column: 1 / -1;
+.hero-stats-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
 }
 
 .hero-avatar {
@@ -1159,9 +1161,10 @@ p {
     /* Hero */
     .hero {
         grid-template-columns: 1fr;
-        padding: 3rem 1.5rem 2rem;
-        gap: 2rem;
+        padding: 3rem 1.5rem 4rem;
+        gap: 3rem;
         text-align: center;
+        overflow: hidden;
     }
 
     .hero-title {
@@ -1203,20 +1206,38 @@ p {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+        width: 100%;
     }
 
     .hero-avatar {
         max-width: 220px;
     }
 
-    /* Stat cards below avatar on mobile - row */
+    /* Stat cards row on mobile */
+    .hero-stats-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
     .floating-card {
-        padding: 1rem 1.5rem;
+        padding: 0.75rem 0.5rem;
         text-align: center;
+        flex: 1;
     }
 
     .card-value {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    .card-label {
+        font-size: 0.6rem;
+    }
+
+    .card-text {
+        font-size: 0.7rem;
     }
 
     /* About */
@@ -1313,6 +1334,18 @@ p {
 
     .hero-avatar {
         max-width: 180px;
+    }
+
+    .hero-stats-row {
+        gap: 0.5rem;
+    }
+
+    .floating-card {
+        padding: 0.6rem 0.4rem;
+    }
+
+    .card-value {
+        font-size: 1.2rem;
     }
 
     .stats-grid {
