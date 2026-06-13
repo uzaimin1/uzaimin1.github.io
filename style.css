@@ -329,6 +329,10 @@ p {
     letter-spacing: 0.5px;
 }
 
+.mobile-badge {
+    display: none;
+}
+
 .status-dot {
     width: 8px;
     height: 8px;
@@ -1201,8 +1205,13 @@ p {
         white-space: normal;
     }
 
-    .hero-badge {
-        margin: 0 auto 1.5rem;
+    .desktop-badge {
+        display: none;
+    }
+
+    .mobile-badge {
+        display: inline-flex;
+        margin: 0 auto 0;
     }
 
     .hero-subtitle {
