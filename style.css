@@ -277,7 +277,26 @@ p {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text);
+    color: var(--primary);
+    padding: 0.5rem;
+    z-index: 1001;
+    position: relative;
+}
+
+.menu-toggle .icon-close {
+    display: none;
+}
+
+.menu-toggle .icon-menu {
+    display: block;
+}
+
+.menu-toggle.active .icon-menu {
+    display: none;
+}
+
+.menu-toggle.active .icon-close {
+    display: block;
 }
 
 /* ============================================

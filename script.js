@@ -64,32 +64,24 @@ const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
-    // Toggle hamburger icon
-    const icon = menuToggle.querySelector('svg');
-    if (navMenu.classList.contains('active')) {
-        menuToggle.innerHTML = '<i data-feather="x"></i>';
-    } else {
-        menuToggle.innerHTML = '<i data-feather="menu"></i>';
-    }
-    feather.replace();
+    menuToggle.classList.toggle('active');
 });
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
-        menuToggle.innerHTML = '<i data-feather="menu"></i>';
-        feather.replace();
+        menuToggle.classList.remove('active');
     });
 });
 
-// Close menu when clicking outside
+// Close menu when tapping outside on mobile
 document.addEventListener('click', (e) => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         navMenu.classList.remove('active');
-        menuToggle.innerHTML = '<i data-feather="menu"></i>';
-        feather.replace();
+        menuToggle.classList.remove('active');
     }
 });
 
