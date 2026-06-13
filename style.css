@@ -1179,11 +1179,21 @@ p {
 
     /* Hero */
     .hero {
-        grid-template-columns: 1fr;
-        padding: 3rem 1.5rem 4rem;
-        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem 3rem;
+        gap: 2rem;
         text-align: center;
         overflow: hidden;
+    }
+
+    /* Avatar moves to TOP on mobile */
+    .hero-visual {
+        order: -1;
+    }
+
+    .hero-content {
+        order: 1;
     }
 
     .hero-title {
@@ -1229,7 +1239,7 @@ p {
     }
 
     .hero-avatar {
-        max-width: 220px;
+        max-width: 260px;
     }
 
     /* Stat cards row on mobile */
