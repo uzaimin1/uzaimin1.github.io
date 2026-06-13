@@ -5,6 +5,58 @@
 feather.replace();
 
 // ============================================
+// TYPING ANIMATION
+// ============================================
+
+const typingText = document.getElementById('typing-text');
+const titles = [
+    'IT Systems Engineer',
+    'Infrastructure Specialist',
+    'Operations Specialist'
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 80;
+let deleteSpeed = 50;
+let pauseTime = 2000;
+
+function typeAnimation() {
+    const currentTitle = titles[titleIndex];
+
+    if (!isDeleting) {
+        // Typing
+        if (charIndex < currentTitle.length) {
+            typingText.textContent += currentTitle[charIndex];
+            charIndex++;
+            setTimeout(typeAnimation, typeSpeed);
+        } else {
+            // Pause before deleting
+            isDeleting = true;
+            setTimeout(typeAnimation, pauseTime);
+        }
+    } else {
+        // Deleting
+        if (charIndex > 0) {
+            typingText.textContent = currentTitle.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(typeAnimation, deleteSpeed);
+        } else {
+            // Move to next title
+            isDeleting = false;
+            titleIndex = (titleIndex + 1) % titles.length;
+            setTimeout(typeAnimation, 500);
+        }
+    }
+}
+
+// Start typing animation when page loads
+if (typingText) {
+    setTimeout(typeAnimation, 500);
+}
+
+// ============================================
 // MOBILE MENU TOGGLE
 // ============================================
 
