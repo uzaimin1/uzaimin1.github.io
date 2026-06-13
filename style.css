@@ -292,24 +292,9 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
-.nav-wrapper .logo {
-    grid-column: 2;
-    justify-self: center;
-}
-
-.nav-wrapper .nav-menu {
-    grid-column: 3;
-    justify-self: end;
-}
-
-.nav-wrapper .menu-toggle {
-    grid-column: 3;
-    justify-self: end;
 }
 
 .logo {
@@ -337,7 +322,6 @@ p {
     height: 52px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: screen;
 }
 
 
