@@ -1,4 +1,14 @@
 // ============================================
+// RANDOM THEME ON EACH PAGE LOAD
+// ============================================
+
+(function() {
+    const themes = ['', 'theme-2', 'theme-3', 'theme-4', 'theme-5'];
+    const pick = themes[Math.floor(Math.random() * themes.length)];
+    if (pick) document.body.classList.add(pick);
+})();
+
+// ============================================
 // FEATHER ICONS INITIALIZATION
 // ============================================
 
